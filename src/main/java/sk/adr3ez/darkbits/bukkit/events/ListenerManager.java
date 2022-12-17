@@ -1,8 +1,8 @@
-package sk.adr3ez.darkbits.events;
+package sk.adr3ez.darkbits.bukkit.events;
 
 import org.bukkit.event.Listener;
 import org.reflections.Reflections;
-import sk.adr3ez.darkbits.DarkBits;
+import sk.adr3ez.darkbits.bukkit.DarkBits;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;

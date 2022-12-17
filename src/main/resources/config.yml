@@ -1,0 +1,17 @@
+MySQL:
+  host: "localhost"
+  port: 3306
+  username: "root"
+  database: "darkbits"
+  useSSL: false
+  password: ""
+
+Options:
+  #This will create account for player on join, recomendent to use only on authentication server or lobby.
+  createPlayerOnJoin: true
+
+Messages:
+  noperms: "&6&lDarkBits - &7You don't have permissions to use this command!"
+
+Permissions:
+  add: "darkbits.add"

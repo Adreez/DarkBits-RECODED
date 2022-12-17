@@ -1,0 +1,4 @@
+name: DarkBits
+main: sk.adr3ez.darkbits.bungee.DarkBitsBungee
+version: '${version}'
+author: Adr3ez_

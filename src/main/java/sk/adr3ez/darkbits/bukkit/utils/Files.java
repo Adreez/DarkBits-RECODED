@@ -1,4 +1,4 @@
-package sk.adr3ez.darkbits.utils;
+package sk.adr3ez.darkbits.bukkit.utils;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

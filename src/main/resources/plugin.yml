@@ -1,9 +1,15 @@
 name: DarkBits
 version: '${version}'
-main: sk.adr3ez.darkbits.DarkBits
+main: sk.adr3ez.darkbits.bukkit.DarkBits
 api-version: 1.19
 prefix: DarkBits
 softdepend: [ PlaceholderAPI ]
 authors: [ Adr3ez_ ]
 description: Premium currency system made originally for darkanian.eu
 website: darklabs.cz
+commands:
+  darkbits:
+    aliases:
+      - bits
+      - bit
+      - bity

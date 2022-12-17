@@ -1,4 +1,4 @@
-package sk.adr3ez.darkbits.custom;
+package sk.adr3ez.darkbits.bukkit.events.custom;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
@@ -6,25 +6,21 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.jetbrains.annotations.NotNull;
 
-public class DarkBitsPlayerCurrencySendEvent extends Event implements Cancellable, Silent {
+public class DarkBitsPlayerCurrencyReceiveEvent extends Event implements Cancellable, Silent {
     private static final HandlerList HANDLERS = new HandlerList();
-
-    private final Player sender;
-    private final Player receiver;
+    private final Player player;
     private boolean isCancelled;
     private final double amount;
     private boolean silent;
 
-    public DarkBitsPlayerCurrencySendEvent(Player sender, Player receiver, Double amount, Boolean silent) {
-        this.sender = sender;
-        this.receiver = receiver;
+    public DarkBitsPlayerCurrencyReceiveEvent(Player player, Double amount, Boolean silent) {
+        this.player = player;
         this.amount = amount;
         setSilent(silent);
         isCancelled = false;
     }
-    public DarkBitsPlayerCurrencySendEvent(Player sender, Player receiver, Double amount) {
-        this.sender = sender;
-        this.receiver = receiver;
+    public DarkBitsPlayerCurrencyReceiveEvent(Player player, Double amount) {
+        this.player = player;
         this.amount = amount;
         silent = false;
         isCancelled = false;
@@ -32,6 +28,9 @@ public class DarkBitsPlayerCurrencySendEvent extends Event implements Cancellabl
 
     public double getAmount() {
         return amount;
+    }
+    public Player getPlayer() {
+        return this.player;
     }
 
     @NotNull
@@ -61,13 +60,5 @@ public class DarkBitsPlayerCurrencySendEvent extends Event implements Cancellabl
     @Override
     public void setCancelled(boolean cancel) {
         this.isCancelled = cancel;
-    }
-
-    public Player getSender() {
-        return sender;
-    }
-
-    public Player getReceiver() {
-        return receiver;
     }
 }
