@@ -1,6 +1,9 @@
 package sk.adr3ez.darkbits.bukkit.commands;
 
-import org.bukkit.Bukkit;
+import com.mojang.brigadier.tree.LiteralCommandNode;
+import me.lucko.commodore.Commodore;
+import me.lucko.commodore.CommodoreProvider;
+import me.lucko.commodore.file.CommodoreFileReader;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -8,8 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.reflections.Reflections;
-import sk.adr3ez.darkbits.bukkit.DarkBits;
-import sk.adr3ez.darkbits.bukkit.commands.subcommands.TabCompleteManager;
 import sk.adr3ez.darkbits.bukkit.sql.SQLGetter;
 import sk.adr3ez.darkbits.bukkit.utils.ChatUtils;
 
@@ -25,7 +26,15 @@ public class CommandManager implements CommandExecutor {
     private static final ArrayList<SubCommand> subCommands = new ArrayList<>();
     public CommandManager(JavaPlugin plugin) {
         registerSubCommands();
-        plugin.getCommand("darkbits").setTabCompleter(new TabCompleteManager());
+        if (CommodoreProvider.isSupported()) {
+            try {
+                LiteralCommandNode<?> darkBitsCommand = CommodoreFileReader.INSTANCE.parse(plugin.getResource("darkbits.commodore"));
+                Commodore commodore = CommodoreProvider.getCommodore(plugin);
+                commodore.register(darkBitsCommand);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void registerSubCommands() throws RuntimeException {

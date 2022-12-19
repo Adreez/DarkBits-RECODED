@@ -1,0 +1,13 @@
+darkbits {
+    help;
+    add {
+        player brigadier:string single_word {
+            double brigadier:double {
+                silent brigadier:bool;
+            }
+        }
+    }
+    remove;
+    reload;
+    send;
+}
