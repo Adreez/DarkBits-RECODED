@@ -6,3 +6,10 @@ Bukkit:
 
 Bungee:
     Messages, config, API
+
+Ideas:
+    Editable rewards for: x payment (Player or server) .. player will make 100. payments and the plugin will give him reward
+
+
+Commodre:
+    https://github.com/lucko/commodore

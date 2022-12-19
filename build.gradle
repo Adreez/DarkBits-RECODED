@@ -19,6 +19,7 @@ repositories {
     maven {
         url = ("https://oss.sonatype.org/content/repositories/snapshots")
     }
+    maven { url 'https://libraries.minecraft.net/' }
 }
 //compileOnly files('C:\\Users\\adria\\IdeaProjects\\DarkLabsLib\\target\\DarkLabsLib-1.0.jar')
 dependencies {
@@ -26,6 +27,7 @@ dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT'
     compileOnly("net.md-5:bungeecord-api:1.19-R0.1-SNAPSHOT")
     implementation 'com.intellij:annotations:12.0@jar'
+    implementation 'me.lucko:commodore:2.2'
 }
 
 def targetJavaVersion = 17
@@ -51,4 +53,12 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
+}
+shadowJar {
+    dependencies {
+        exclude(dependency('com.mojang:brigadier'))
+    }
+
+    /* vvv Replace with the package of your plugin vvv */
+    relocate 'me.lucko.commodore', 'sk.adr3ez.darkbits'
 }

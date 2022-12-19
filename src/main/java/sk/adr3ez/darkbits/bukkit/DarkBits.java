@@ -33,7 +33,7 @@ public final class DarkBits extends JavaPlugin {
         sqlGetter = new SQLGetter();
         //Register all listeners
         new ListenerManager(this);
-        getCommand("darkbits").setExecutor(new CommandManager());
+        getCommand("darkbits").setExecutor(new CommandManager(this));
 
         getLogger().log(Level.INFO, ChatColor.translateAlternateColorCodes('&', "&aPlugin has been loaded in: "
                 + (new Date().getTime() - startupStartTime) + " milliseconds"));

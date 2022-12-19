@@ -19,8 +19,7 @@ public class PlayerData {
     public void createTable() {
         PreparedStatement ps;
         try {
-            ps = DarkBits.mySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS " + table + "(nick VARCHAR(100), " +
-                    "uuid VARCHAR(100), wallet DOUBLE(100), PRIMARY KEY (nick))");
+            ps = DarkBits.mySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS " + table + "(nick VARCHAR(100), uuid VARCHAR(100), wallet DOUBLE, PRIMARY KEY (nick))");
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
