@@ -7,11 +7,10 @@ MySQL:
   password: ""
 
 Options:
+  #If all operations should be made by bungeecord.. like sending messages to player, sending, adding, removing bits, etc.
+  bungee: false
   #This will create account for player on join, recomendent to use only on authentication server or lobby.
   createPlayerOnJoin: true
 
 Messages:
   noperms: "&6&lDarkBits - &7You don't have permissions to use this command!"
-
-Permissions:
-  add: "darkbits.add"

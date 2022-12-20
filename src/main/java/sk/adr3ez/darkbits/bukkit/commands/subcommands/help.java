@@ -17,11 +17,6 @@ public class help extends SubCommand {
     }
 
     @Override
-    public String getPermission() {
-        return "darkbits.help";
-    }
-
-    @Override
     public String getUsage() {
         return "/darkbits help";
     }

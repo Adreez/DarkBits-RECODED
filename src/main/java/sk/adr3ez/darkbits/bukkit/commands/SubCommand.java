@@ -9,8 +9,6 @@ public abstract class SubCommand {
 
     public abstract String getDescription();
 
-    public abstract String getPermission();
-
     public abstract String getUsage();
 
     public abstract void onCommand(CommandSender sender, String[] args);

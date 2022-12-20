@@ -20,6 +20,9 @@ repositories {
         url = ("https://oss.sonatype.org/content/repositories/snapshots")
     }
     maven { url 'https://libraries.minecraft.net/' }
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
 }
 //compileOnly files('C:\\Users\\adria\\IdeaProjects\\DarkLabsLib\\target\\DarkLabsLib-1.0.jar')
 dependencies {
@@ -28,6 +31,7 @@ dependencies {
     compileOnly("net.md-5:bungeecord-api:1.19-R0.1-SNAPSHOT")
     implementation 'com.intellij:annotations:12.0@jar'
     implementation 'me.lucko:commodore:2.2'
+    compileOnly 'me.clip:placeholderapi:2.11.2'
 }
 
 def targetJavaVersion = 17

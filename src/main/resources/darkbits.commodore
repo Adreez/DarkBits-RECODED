@@ -9,5 +9,9 @@ darkbits {
     }
     remove;
     reload;
-    send;
+    send {
+        player brigadier:string single_word {
+            double brigadier:double;
+        }
+    }
 }

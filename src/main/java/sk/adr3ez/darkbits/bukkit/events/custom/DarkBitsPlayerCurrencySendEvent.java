@@ -6,27 +6,18 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.jetbrains.annotations.NotNull;
 
-public class DarkBitsPlayerCurrencySendEvent extends Event implements Cancellable, Silent {
+public class DarkBitsPlayerCurrencySendEvent extends Event implements Cancellable {
     private static final HandlerList HANDLERS = new HandlerList();
 
     private final Player sender;
     private final Player receiver;
     private boolean isCancelled;
     private final double amount;
-    private boolean silent;
 
-    public DarkBitsPlayerCurrencySendEvent(Player sender, Player receiver, Double amount, Boolean silent) {
-        this.sender = sender;
-        this.receiver = receiver;
-        this.amount = amount;
-        setSilent(silent);
-        isCancelled = false;
-    }
     public DarkBitsPlayerCurrencySendEvent(Player sender, Player receiver, Double amount) {
         this.sender = sender;
         this.receiver = receiver;
         this.amount = amount;
-        silent = false;
         isCancelled = false;
     }
 
@@ -41,16 +32,6 @@ public class DarkBitsPlayerCurrencySendEvent extends Event implements Cancellabl
     }
     public static HandlerList getHandlerList() {
         return HANDLERS;
-    }
-
-    @Override
-    public boolean isSilent() {
-        return this.silent;
-    }
-
-    @Override
-    public void setSilent(boolean silent) {
-        this.silent = silent;
     }
 
     @Override
